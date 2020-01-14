@@ -1,11 +1,20 @@
 #!bash
 
-FILES=../audio_files/*.mp3
-
-for f in $FILES
+for f in $(find ../audio_files -type f)
 do
-  file_name=$(basename $f .mp3)
-  echo "Processing $file_name file..."
+  echo "Processing $f file..."
+  case $f in 
+    *.mp3)
+	echo "mp3"
+	file_name=$(basename $f .mp3);;
+    *.wav)
+	echo "wav"
+	file_name=$(basename $f .wav);;
+    *)
+	echo "unacceptable format, continuing to next one"
+	continue
+  esac
+  echo $file_name
   # take action on each file. $f store current file name
   /Applications/Praat.app/Contents/MacOS/Praat --run  ./Pause_distribution_ca.praat $f ../pause_files_from_audio/$file_name.xlsx
 done
