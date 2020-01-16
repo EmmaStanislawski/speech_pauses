@@ -1,6 +1,6 @@
 #!bash
 
-for f in $(find ../audio_files -type f)
+find ../../PsychiatryLanguage/audio_files -type f | while read f
 do
   echo "Processing $f file..."
   case $f in 
@@ -14,7 +14,8 @@ do
 	echo "unacceptable format, continuing to next one"
 	continue
   esac
-  echo $file_name
+  echo "file_name: "$file_name
+  echo "passing $f to praat"
   # take action on each file. $f store current file name
-  /Applications/Praat.app/Contents/MacOS/Praat --run  ./Pause_distribution_ca.praat $f ../pause_files_from_audio/$file_name.xlsx
+  /Applications/Praat.app/Contents/MacOS/Praat --run  ./Pause_distribution_ca.praat "$f" ../../PsychiatryLanguage/pauses_files_from_audio/file_tmp.xlsx
 done
