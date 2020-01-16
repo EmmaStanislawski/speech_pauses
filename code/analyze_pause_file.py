@@ -16,16 +16,16 @@ def read_pauses_file(file_name):
 	#splitting rows into columns
 	for curr_row in data:
 		curr_row = curr_row.strip('\n')
-		# items_in_row = curr_row.split('\t')
-		items_in_row = curr_row.split(',')
-		# print items_in_row
+		items_in_row = curr_row.split('\t')
+		#items_in_row = curr_row.split(',')
+		print items_in_row
 
 		#only considering silences
 		if items_in_row[2] == 'silent':
 
 			#calculating pause length
-			# start_time_pause = float(items_in_row[0])
-			start_time_pause = float(items_in_row[1])
+			start_time_pause = float(items_in_row[0])
+			#start_time_pause = float(items_in_row[1])
 			end_time_pause = float(items_in_row[3])
 			curr_pause_len = end_time_pause - start_time_pause
 
