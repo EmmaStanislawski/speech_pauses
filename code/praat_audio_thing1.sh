@@ -20,5 +20,5 @@ do
   echo "file_name: "$file_name
   echo "passing $f to praat"
   # take action on each file. f store current file name
-  /Applications/Praat.app/Contents/MacOS/Praat --run  ./Pause_distribution_ca.praat "$f" ../../pauses_files_from_audio/$file_name.xlsx
+  /Applications/Praat.app/Contents/MacOS/Praat --run  ./Pause_distribution_ca.praat "$f" ../../pauses_files_from_audio/$file_name.xls
 done
