@@ -1,6 +1,6 @@
 #!bash
 
-find ../../audio_files -type f | while read f
+find ../../audio_files/Thing2 -type f | while read f
 do
   echo "Processing $f file..."
   #no spaces in file path, just to extract output file name
